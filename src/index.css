@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* use to test layout */
+
+.box {
+	@apply border border-red-500;
+}

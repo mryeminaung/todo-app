@@ -1,10 +1,11 @@
-import React from "react";
+import { TodoContextProvider } from "./contexts/TodoContext";
+import Todo from "./components/Todo/Todo";
 
 const App = () => {
 	return (
-		<div className="h-screen flex items-center justify-center">
-			<h1 className="text-5xl font-bold">Todo App</h1>
-		</div>
+		<TodoContextProvider>
+			<Todo />
+		</TodoContextProvider>
 	);
 };
 
