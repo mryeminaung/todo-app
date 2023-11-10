@@ -1,38 +1,37 @@
 import { useTodoContext } from "../../contexts/TodoContext";
+import TodoItem from "./TodoItem";
 
 const TodoList = () => {
-	const { todoList, dispatch } = useTodoContext();
+	const { todoList, searchQuery } = useTodoContext();
 
-	// to display all the tasks : todo list
-	const displayTasks = (task) => {
-		return (
-			<li
-				key={task.id}
-				className="border border-[#61DAFB] p-2 rounded-md flex items-center justify-between transition-all"
-			>
-				<label htmlFor={task.id}>{task.name}</label>
-				<button
-					className="text-red-500 px-2 text-xl"
-					onClick={() => {
-						dispatch({ type: "deleteTask", payload: task.id });
-					}}
-				>
-					&times;
-				</button>
-			</li>
-		);
-	};
+	// this function is used to filter tasks based on search query
+	const filteredTasks = todoList.filter((task) =>
+		task.name.toLowerCase().includes(searchQuery.toLowerCase()),
+	);
 
 	return (
-		<>
-			{todoList.length > 0 ? (
-				<ul className="space-y-2 max-h-[600px] overflow-y-auto">{todoList.map((task) => displayTasks(task))}</ul>
-			) : (
-				<h2 className="font-bold text-3xl text-center bg-gray-300 rounded-lg py-3 text-black border border-[#61DAFB]">
-					No tasks to show
-				</h2>
-			)}
-		</>
+		<div className="mt-3 space-y-3">
+			<div className="flex items-center justify-between border-y border-[#61DAFB]">
+				<h2 className="text-2xl font-bold py-2">Tasks</h2>
+			</div>
+
+			{/* 
+			if search query, show filtered tasks. if not , show todo lists
+			*/}
+			<ul className="w-full space-y-3 mt-3">
+				{searchQuery ? (
+					filteredTasks.length > 0 ? (
+						filteredTasks.map((task) => <TodoItem key={task.id} task={task} />)
+					) : (
+						<h2 className="empty-text">No matching tasks</h2>
+					)
+				) : todoList.length > 0 ? (
+					todoList.map((task) => <TodoItem key={task.id} task={task} />)
+				) : (
+					<h2 className="empty-text">No tasks to show</h2>
+				)}
+			</ul>
+		</div>
 	);
 };
 

@@ -12,6 +12,9 @@ const reducer = (state, action) => {
 		case "deleteTask":
 			return state.filter((task) => task.id !== action.payload);
 
+		case "clearTasks":
+			return [];
+
 		default:
 			return state;
 	}
@@ -22,6 +25,7 @@ const TodoContext = createContext();
 export const TodoContextProvider = ({ children }) => {
 	const [todoList, dispatch] = useReducer(reducer, initialState);
 	const [task, setTask] = useState("");
+	const [searchQuery, setSearchQuery] = useState("");
 
 	// store todo list using localstorage
 	useEffect(() => {
@@ -29,7 +33,9 @@ export const TodoContextProvider = ({ children }) => {
 	}, [todoList]);
 
 	return (
-		<TodoContext.Provider value={{ todoList, dispatch, task, setTask }}>
+		<TodoContext.Provider
+			value={{ todoList, dispatch, task, setTask, searchQuery, setSearchQuery }}
+		>
 			{children}
 		</TodoContext.Provider>
 	);

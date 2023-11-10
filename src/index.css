@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 /* use to test layout */
-
 .box {
 	@apply border border-red-500;
+}
+
+/* --- --- --- --- */
+
+.empty-text {
+	@apply font-bold text-3xl text-center bg-gray-300 rounded-lg py-3 text-black border border-[#61DAFB];
 }
