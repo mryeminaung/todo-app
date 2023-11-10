@@ -1,7 +1,8 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const initialState = [];
+// retrieve todo list from localstorage. if not, return []
+const initialState = JSON.parse(localStorage.getItem("tasks")) || [];
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -21,6 +22,11 @@ const TodoContext = createContext();
 export const TodoContextProvider = ({ children }) => {
 	const [todoList, dispatch] = useReducer(reducer, initialState);
 	const [task, setTask] = useState("");
+
+	// store todo list using localstorage
+	useEffect(() => {
+		localStorage.setItem("tasks", JSON.stringify(todoList));
+	}, [todoList]);
 
 	return (
 		<TodoContext.Provider value={{ todoList, dispatch, task, setTask }}>
