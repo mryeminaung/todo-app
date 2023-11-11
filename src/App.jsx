@@ -1,11 +1,14 @@
 import { TodoContextProvider } from "./contexts/TodoContext";
 import Todo from "./components/Todo/Todo";
+import { ThemeContextProvider } from "./contexts/ThemeContext";
 
 const App = () => {
 	return (
-		<TodoContextProvider>
-			<Todo />
-		</TodoContextProvider>
+		<ThemeContextProvider>
+			<TodoContextProvider>
+				<Todo />
+			</TodoContextProvider>
+		</ThemeContextProvider>
 	);
 };
 

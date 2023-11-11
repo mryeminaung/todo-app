@@ -12,3 +12,21 @@
 .empty-text {
 	@apply font-bold text-3xl text-center bg-gray-300 rounded-lg py-3 text-black border border-[#61DAFB];
 }
+
+/* theme switcher */
+
+.checkbox {
+	@apply absolute opacity-0;
+}
+
+.checkbox-label {
+	@apply flex items-center justify-between cursor-pointer p-[5px] relative rounded-[50px] h-[26px] w-[50px] bg-[#61DAFB];
+}
+
+.checkbox-label .ball {
+	@apply bg-[#61dafb] border-[8px] border-black w-[22px] h-[22px] absolute left-[2px] top-[2px] rounded-[50%] transition-transform duration-200 ease-linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+	@apply transform translate-x-[24px];
+}

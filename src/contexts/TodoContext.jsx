@@ -12,6 +12,11 @@ const reducer = (state, action) => {
 		case "deleteTask":
 			return state.filter((task) => task.id !== action.payload);
 
+		case "doneTask":
+			return state.map((task) => {
+				return task.id === action.id ? { ...task, done: action.checked } : task;
+			});
+
 		case "clearTasks":
 			return [];
 
@@ -26,15 +31,27 @@ export const TodoContextProvider = ({ children }) => {
 	const [todoList, dispatch] = useReducer(reducer, initialState);
 	const [task, setTask] = useState("");
 	const [searchQuery, setSearchQuery] = useState("");
+	const [doneCount, setDoneCount] = useState(0);
 
 	// store todo list using localstorage
 	useEffect(() => {
 		localStorage.setItem("tasks", JSON.stringify(todoList));
+		const countDoneTasks = todoList.filter((task) => task.done).length;
+		setDoneCount(countDoneTasks);
 	}, [todoList]);
 
 	return (
 		<TodoContext.Provider
-			value={{ todoList, dispatch, task, setTask, searchQuery, setSearchQuery }}
+			value={{
+				todoList,
+				dispatch,
+				task,
+				setTask,
+				searchQuery,
+				setSearchQuery,
+				doneCount,
+				setDoneCount,
+			}}
 		>
 			{children}
 		</TodoContext.Provider>
