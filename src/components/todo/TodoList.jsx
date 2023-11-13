@@ -30,8 +30,8 @@ const TodoList = () => {
 		<div
 			className={`mt-3 space-y-3 ${todoList.length >= 10 && "h-[500px]"} overflow-y-auto`}
 		>
-			<div className="flex items-center justify-between border-y border-[#61DAFB]">
-				<h2 className="text-2xl font-bold py-2">Tasks</h2>
+			<div className="flex items-center justify-between border-y border-[#61DAFB] pr-3">
+				<h2 className="text-2xl font-bold py-2 capitalize">{filterBy} Tasks</h2>
 
 				{/* display the number of done tasks */}
 				{todoList.length > 0 && (
@@ -46,7 +46,7 @@ const TodoList = () => {
 			{/*
 			if search query, show filtered tasks. if not , show todo lists
 			*/}
-			<ul className="w-full space-y-3 mt-3 overflow-y-auto">
+			<ul className="w-full space-y-3 mt-3 overflow-y-auto p-3 rounded-md">
 				{searchQuery ? (
 					searchedTasks.length > 0 ? (
 						searchedTasks.map((task) => <TodoItem key={task.id} task={task} />)

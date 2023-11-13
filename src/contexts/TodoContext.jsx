@@ -17,6 +17,16 @@ const reducer = (state, action) => {
 				return task.id === action.id ? { ...task, done: action.checked } : task;
 			});
 
+		case "updateTask":
+			return state.map((task) => {
+				return task.id === action.updateId ? { ...task, name: action.updateTask } : task;
+			});
+
+		case "updateStatus":
+			return state.map((task) => {
+				return task.id === action.StatusId ? { ...task, done: action.status } : task;
+			});
+
 		case "clearDoneTasks":
 			return state.filter((task) => !task.done);
 
@@ -36,6 +46,7 @@ export const TodoContextProvider = ({ children }) => {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [doneCount, setDoneCount] = useState(0);
 	const [filteredTasks, setFilteredTasks] = useState([]);
+	const [status, setStatus] = useState("");
 
 	// store todo list using localstorage
 	useEffect(() => {
@@ -57,6 +68,8 @@ export const TodoContextProvider = ({ children }) => {
 				setDoneCount,
 				filteredTasks,
 				setFilteredTasks,
+				status,
+				setStatus,
 			}}
 		>
 			{children}
