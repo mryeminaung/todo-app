@@ -27,15 +27,15 @@ const TodoList = () => {
 	);
 
 	return (
-		<div
-			className={`mt-3 space-y-3 ${todoList.length >= 10 && "h-[500px]"} overflow-y-auto`}
-		>
+		<div className="mt-3 space-y-3">
 			<div className="flex items-center justify-between border-y border-[#61DAFB] pr-3">
-				<h2 className="text-2xl font-bold py-2 capitalize">{filterBy} Tasks</h2>
+				<h2 className="text-xl md:text-2xl font-bold py-2 capitalize">
+					{filterBy} Tasks
+				</h2>
 
 				{/* display the number of done tasks */}
 				{todoList.length > 0 && (
-					<span className="text-xl">
+					<span className="text-lg font-semibold">
 						Done {doneCount} of {todoList.length}
 					</span>
 				)}

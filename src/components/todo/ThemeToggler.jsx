@@ -6,7 +6,7 @@ const ThemeToggler = () => {
 
 	return (
 		<div className="flex items-center justify-between mb-5">
-			<h1 className="font-bold text-3xl text-center">Todo App</h1>
+			<h1 className="font-bold text-2xl md:text-3xl text-center">Todo App</h1>
 			<div className="theme-toggler">
 				<input
 					type="checkbox"

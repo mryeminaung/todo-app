@@ -11,12 +11,12 @@ const Todo = () => {
 
 	return (
 		<div
-			className="h-screen w-full"
+			className={`h-full min-h-screen w-full`}
 			style={{ backgroundColor: theme.body, color: theme.text }}
 		>
-			<section className="container mx-auto py-10 h-full flex flex-col items-center justify-start">
+			<section className="container mx-auto h-full flex flex-col items-center justify-start">
 				<div
-					className="w-[700px] p-6 py-8 rounded-lg border shadow-sm shadow-[#61dafb80] border-[#61dafb]"
+					className="my-10 w-[90%] md:w-[700px] p-6 py-8 rounded-lg border shadow-sm shadow-[#61dafb80] border-[#61dafb]"
 					style={{ backgroundColor: theme.bg }}
 				>
 					<ThemeToggler />

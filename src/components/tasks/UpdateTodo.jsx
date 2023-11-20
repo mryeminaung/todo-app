@@ -15,13 +15,13 @@ const UpdateTodo = ({ task, setIsEdit, setUpdateText, updateText }) => {
 	return (
 		<div className="absolute top-0 left-0 w-screen h-screen">
 			<div
-				className="w-[650px] border border-[#61DAFB] shadow-sm shadow-[#61dafb80]h-[400px] absolute left-[50%] top-[50%] -translate-x-[50%] p-10 -translate-y-[50%] rounded-md"
+				className="w-[80%] md:w-[650px] border border-[#61DAFB] shadow-sm shadow-[#61dafb80]h-[400px] absolute left-[50%] top-[50%] -translate-x-[50%] p-5 md:p-8 -translate-y-[50%] rounded-md"
 				style={{ backgroundColor: theme.body, color: theme.text }}
 			>
-				<h2 className="font-bold text-3xl text-center mb-5">Update Todo</h2>
+				<h2 className="font-bold text-xl md:text-3xl text-center mb-5">Update Todo</h2>
 
 				<div className="space-y-3">
-					<label htmlFor={task.id} className="font-bold text-xl">
+					<label htmlFor={task.id} className="font-bold text-lg md:text-xl">
 						Task Name
 					</label>
 					<input
@@ -36,7 +36,7 @@ const UpdateTodo = ({ task, setIsEdit, setUpdateText, updateText }) => {
 					/>
 					<label
 						htmlFor="status"
-						className="font-bold text-xl mt-3 block"
+						className="font-bold text-lg md:text-xl mt-3 block"
 						value={task.done}
 						onChange={(e) => {
 							console.log(e.target.value);
@@ -56,9 +56,9 @@ const UpdateTodo = ({ task, setIsEdit, setUpdateText, updateText }) => {
 					</select>
 				</div>
 
-				<div className="flex items-center gap-x-5 mt-3">
+				<div className="flex flex-col-reverse gap-y-4 md:flex-row items-center gap-x-3 mt-3">
 					<button
-						className="border border-[#61DAFB] hover:bg-[#61DAFB] hover:text-black mt-3 py-2 w-full font-semibold rounded-md transition-colors duration-200"
+						className="border border-[#61DAFB] hover:bg-[#61DAFB] hover:text-black py-2 w-full text-sm md:text-base font-semibold rounded-md transition-colors duration-200"
 						onClick={() => {
 							setIsEdit((preState) => !preState);
 							setStatus(task.done ? "completed" : "active");
@@ -67,7 +67,7 @@ const UpdateTodo = ({ task, setIsEdit, setUpdateText, updateText }) => {
 						Cancel
 					</button>
 					<button
-						className="border border-[#61DAFB] hover:bg-[#61DAFB] hover:text-black mt-3 py-2 w-full font-semibold rounded-md transition-colors duration-200"
+						className="border border-[#61DAFB] hover:bg-[#61DAFB] hover:text-black py-2 w-full text-sm md:text-base font-semibold rounded-md transition-colors duration-200"
 						onClick={() => {
 							setIsEdit(false);
 							dispatch({

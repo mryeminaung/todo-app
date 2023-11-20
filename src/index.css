@@ -10,7 +10,7 @@
 /* --- --- --- --- */
 
 .empty-text {
-	@apply font-bold text-2xl text-center bg-gray-300 rounded-lg py-3 text-black border border-[#61DAFB];
+	@apply font-bold text-xl md:text-2xl text-center bg-gray-300 rounded-lg py-3 text-black border border-[#61DAFB];
 }
 
 .filter-btn {

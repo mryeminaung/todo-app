@@ -14,17 +14,17 @@ const TodoItem = ({ task }) => {
 
 	return (
 		<li
-			className="border border-[#61DAFB] p-2 rounded-md flex items-center justify-between"
+			className="border border-[#61DAFB] p-3 rounded-md flex flex-col sm:flex-row md:items-center justify-between gap-x-2 gap-y-1"
 			style={{ backgroundColor: theme.body }}
 		>
-			<p className="flex items-center space-x-2 text-[18px]">
+			<p className="flex items-start space-x-2 text-[18px]">
 				{/* if checked is true, doneCount + 1 else doneCount - 1 */}
 				<input
 					type="checkbox"
 					name={task.name}
 					id={task.id}
 					checked={task.done}
-					className="accent-green-500 w-[20px] h-[20px]"
+					className="accent-green-500 min-w-[20px] h-[20px] mt-[6px]"
 					// style={{ clipPath: "circle(50% at 50% 50%)" }}
 					onChange={(e) => {
 						dispatch({
@@ -34,7 +34,7 @@ const TodoItem = ({ task }) => {
 						});
 					}}
 				/>
-				<label htmlFor={task.id} className={`${task.done ? "line-through" : ""}`}>
+				<label htmlFor={task.id} className={` ${task.done ? "line-through" : ""}`}>
 					{task.name}
 				</label>
 			</p>
@@ -49,9 +49,9 @@ const TodoItem = ({ task }) => {
 				/>
 			)}
 
-			<div className="flex items-center">
+			<div className="flex justify-end items-center gap-x-3">
 				<button
-					className="text-green-500 px-2 text-xl"
+					className="text-green-500 text-xl"
 					onClick={() => {
 						setIsEdit((preState) => !preState);
 					}}
@@ -59,7 +59,7 @@ const TodoItem = ({ task }) => {
 					<FaPenToSquare />
 				</button>
 				<button
-					className="text-red-500 px-2 text-xl"
+					className="text-red-500 text-xl"
 					onClick={() => {
 						dispatch({ type: "deleteTask", payload: task.id });
 					}}
