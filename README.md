@@ -1,6 +1,6 @@
-# Todo List App
+# To-do List App
 
-This is a feature-rich todo list app built using React and Tailwind CSS. It offers a variety of functionalities to help you manage your tasks efficiently.
+This is a feature-rich to-do list app built using React and Tailwind CSS. It offers a variety of functionalities to help you manage your tasks efficiently.
 
 ## Tech Stack
 
@@ -8,10 +8,11 @@ This is a feature-rich todo list app built using React and Tailwind CSS. It offe
 - Vite
 - Tailwind CSS
 - uuid
+- React Icons
 
 ## Getting Started
 
-To get started with the Todo List App, follow these steps:
+To get started with the To-do List App, follow these steps:
 
 ### Prerequisites
 
@@ -23,9 +24,9 @@ Before you begin, make sure you have the following prerequisites installed on yo
 
 1. **Clone the Repository**
 
-   Clone the Todo List App repository to your local machine. Open your terminal and run the following command:
+   Clone the To-do List App repository to your local machine. Open your terminal and run the following command:
    ```bash
-   git clone <repository-url>
+   git clone 
    ```
 2. **Navigate to the Project Directory**
 
@@ -68,5 +69,5 @@ Before you begin, make sure you have the following prerequisites installed on yo
 - To search for specific tasks, utilize the **search bar** or **search field** in the app interface and enter relevant keywords or descriptions.
 - To delete a task, click on the **"Delete"** button.
 - To filter tasks, use the **"Filter"** dropdown menu to select between **"All"**, **"Completed"**, and **"Incomplete"** tasks.
-- To reset the todo list to its initial state, click on the **"Reset"** button.
+- To reset the to-do list to its initial state, click on the **"Reset"** button.
 
