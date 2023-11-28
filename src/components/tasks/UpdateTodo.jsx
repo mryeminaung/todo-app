@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useThemeContext } from "../../contexts/ThemeContext";
 import { useTodoContext } from "../../contexts/TodoContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UpdateTodo = ({ task, setIsEdit, setUpdateText, updateText }) => {
 	const { dispatch, status, setStatus } = useTodoContext();
@@ -66,6 +68,19 @@ const UpdateTodo = ({ task, setIsEdit, setUpdateText, updateText }) => {
 					>
 						Cancel
 					</button>
+					{/* update message */}
+					<ToastContainer
+						position="bottom-right"
+						autoClose={3000}
+						hideProgressBar={false}
+						newestOnTop={false}
+						closeOnClick
+						rtl={false}
+						pauseOnFocusLoss
+						draggable
+						pauseOnHover
+						theme="light"
+					/>
 					<button
 						className="border border-[#61DAFB] hover:bg-[#61DAFB] hover:text-black py-2 w-full text-sm md:text-base font-semibold rounded-md transition-colors duration-200"
 						onClick={() => {
@@ -79,6 +94,17 @@ const UpdateTodo = ({ task, setIsEdit, setUpdateText, updateText }) => {
 								type: "updateTask",
 								updateId: task.id,
 								updateTask: updateText,
+							});
+							toast.success("Updated successfully", {
+								position: "bottom-right",
+								autoClose: 1000,
+								hideProgressBar: false,
+								closeOnClick: true,
+								pauseOnHover: true,
+								draggable: true,
+								progress: undefined,
+								theme: "light",
+								className: "mx-auto w-[85%] md:w-auto",
 							});
 						}}
 					>

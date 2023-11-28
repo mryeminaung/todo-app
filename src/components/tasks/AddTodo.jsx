@@ -1,10 +1,38 @@
 import { useTodoContext } from "../../contexts/TodoContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddTodo = () => {
 	const { task, setTask, dispatch } = useTodoContext();
 
 	return (
 		<>
+			{/* success message */}
+			<ToastContainer
+				position="bottom-right"
+				autoClose={3000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="light"
+			/>
+			{/* error message */}
+			<ToastContainer
+				position="top-center"
+				autoClose={1500}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="light"
+			/>
 			{/* add new task to todo list */}
 			<div className="flex flex-col md:flex-row md:items-center gap-y-2 md:gap-x-3">
 				<input
@@ -23,8 +51,29 @@ const AddTodo = () => {
 						if (task) {
 							dispatch({ type: "addTask", payload: task });
 							setTask("");
+							toast.success("Added successfully", {
+								position: "bottom-right",
+								autoClose: 1000,
+								hideProgressBar: false,
+								closeOnClick: true,
+								pauseOnHover: true,
+								draggable: true,
+								progress: undefined,
+								theme: "light",
+								className: "mx-auto w-[85%] md:w-auto",
+							});
 						} else {
-							alert("Enter something to add to your to-do list");
+							toast.error("Input is empty!", {
+								position: "top-center",
+								autoClose: 1000,
+								hideProgressBar: false,
+								closeOnClick: true,
+								pauseOnHover: true,
+								draggable: true,
+								progress: undefined,
+								theme: "light",
+								className: "mx-auto w-[85%] md:w-auto",
+							});
 						}
 					}}
 				>

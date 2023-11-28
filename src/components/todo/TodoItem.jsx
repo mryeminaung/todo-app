@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useThemeContext } from "../../contexts/ThemeContext";
 import { useTodoContext } from "../../contexts/TodoContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FaPenToSquare, FaTrashCan } from "react-icons/fa6";
 import UpdateTodo from "../tasks/UpdateTodo";
 
@@ -58,10 +60,34 @@ const TodoItem = ({ task }) => {
 				>
 					<FaPenToSquare />
 				</button>
+				{/* delete message */}
+				<ToastContainer
+					position="bottom-right"
+					autoClose={1500}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+					theme="light"
+				/>
 				<button
 					className="text-red-500 text-xl"
 					onClick={() => {
 						dispatch({ type: "deleteTask", payload: task.id });
+						toast.error("Deleted successfully", {
+							position: "bottom-right",
+							autoClose: 1000,
+							hideProgressBar: false,
+							closeOnClick: true,
+							pauseOnHover: true,
+							draggable: true,
+							progress: undefined,
+							theme: "light",
+							className: "mx-auto w-[80%] md:w-auto",
+						});
 					}}
 				>
 					<FaTrashCan />
