@@ -26,7 +26,7 @@ Before you begin, make sure you have the following prerequisites installed on yo
 
    Clone the To-do List App repository to your local machine. Open your terminal and run the following command:
    ```bash
-   git clone 
+   git clone https://github.com/mryeminaung/todo-app.git
    ```
 2. **Navigate to the Project Directory**
 
